@@ -39,34 +39,21 @@ public class espressoTest {
     @Test
     public void espressoTest() {
         ViewInteraction appCompatEditText = onView(
-                allOf(withId(R.id.val1),
-
-                                        withId(android.R.id.content), isDisplayed()));
+                allOf(withId(R.id.val1), isDisplayed()));
         appCompatEditText.perform(replaceText("5"), closeSoftKeyboard());
 
         ViewInteraction appCompatEditText2 = onView(
-                allOf(withId(R.id.val2),
-
-                                        withId(android.R.id.content), isDisplayed()));
+                allOf(withId(R.id.val2), isDisplayed()));
         appCompatEditText2.perform(replaceText("5"), closeSoftKeyboard());
 
         ViewInteraction materialButton = onView(
-                allOf(withId(R.id.Sumar), withText("Sumar"),
-
-                                        withId(android.R.id.content), isDisplayed()));
+                allOf(withId(R.id.Sumar), withText("Sumar"), isDisplayed()));
         materialButton.perform(click());
 
-        ViewInteraction appCompatEditText3 = onView(
-                allOf(withId(R.id.Resultado),
-
-                                        withId(android.R.id.content), isDisplayed()));
-        appCompatEditText3.perform(replaceText("10"), closeSoftKeyboard());
-
         ViewInteraction textView = onView(
-                allOf(withId(R.id.logText), withText("Calculadora!"),
+                allOf(withId(R.id.Resultado), withText("10.0"),
                         withParent(withParent(withId(android.R.id.content))),
                         isDisplayed()));
-        textView.check(matches(withText("Calculadora!")));
+        textView.check(matches(withText("10.0")));
     }
-
 }
